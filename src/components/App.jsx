@@ -18,6 +18,10 @@ export const App = () => {
   const [totalHits, setTotalHits] = useState(0);
 
   useEffect(() => {
+    if (query === '') {
+      return;
+    }
+
     async function loadImages() {
       try {
         setLoading(true);
@@ -45,9 +49,6 @@ export const App = () => {
       }
     }
 
-    if (query === '') {
-      return;
-    }
     loadImages();
   }, [query, page]);
 
